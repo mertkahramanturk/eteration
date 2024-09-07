@@ -1,0 +1,75 @@
+
+
+.row > * {
+  position: relative;
+
+}
+button:focus,
+button:active {
+  outline: none !important;
+  box-shadow: none !important; 
+}
+input:focus,
+input:active {
+  outline: none !important;
+  box-shadow: none !important; 
+}
+
+.container {
+  max-width: 1600px !important;
+  width: 100% !important;
+}
+@media only screen and (max-width: 991px) {
+  .container {
+    width: 100% !important;
+  }
+}
+
+@each $heading, $size in $heading-font-sizes {
+  #{$heading},
+  .#{$heading} {
+    font-size: $size !important;
+  }
+}
+
+@each $heading, $size in $display-font-sizes {
+  .#{$heading} {
+    font-size: $size !important;
+  }
+}
+
+@each $name, $value in $colors {
+  .bg-#{$name} {
+    background-color: #{$value} !important;
+  }
+  .bg-soft-#{$name} {
+    background-color: rgba($value, 0.1) !important;
+    border: 1px solid rgba($value, 0.1) !important;
+    color: #{$value} !important;
+  }
+  .text-#{$name} {
+    color: #{$value} !important;
+  }
+  a {
+    transition: all 0.5s ease;
+    &.text-#{$name} {
+      &:hover,
+      &:focus {
+        color: darken($value, 5%) !important;
+      }
+    }
+  }
+}
+
+.d-flex {
+  .flex-1 {
+    flex: 1;
+  }
+}
+
+.bg-black {
+  background: $black !important;
+}
+.bg-white{
+  background-color: $white;
+}

@@ -1,0 +1,112 @@
+
+// Color
+$white:                     #ffffff;
+$muted:                     #adb5bd;
+$primary:                   #2A59FE;
+$primary-light-dark:        #7cf0e7;
+$primary-light:             #effbfa;
+$primary-dark:              #07413B;
+$yellow:                    #fcc875;
+$yellow-dark:               #e69005;
+$yellow-light:              #FEE4C3;
+$content:                   #32334b;
+$soft-pink:                 #FFA2C0;
+$soft-pink-light:           #FFE8EF;
+$purble:                    #6a40bc;
+
+
+// Gray
+$gray-100:                  #f8f9fa;
+$gray-200:                  #e9ecef;
+$gray-300:                  #dee2e6;
+$gray-400:                  #ced4da;
+$gray-500:                  #adb5bd;
+$gray-600:                  #6c757d; 
+$gray-700:                  #495057;
+
+// Overlay
+$overlay:                   rgba($dark, 0.7);
+$bg-overlay-white:          rgba($white, 0.5);
+
+//Body Background
+$shadow:                    0 0 3px rgba($dark,.15);
+$shadow-s:                  0 1px 4px #0000000d;
+$shadow-xs:                 0 5px 13px rgba($dark, 0.05);
+$shadow-md:                 0 5px 13px rgba($dark, .2);
+$shadow-lg:                 0 10px 25px rgba($dark, 0.15);
+
+
+$footer:                    lighten($black, 6%);
+
+// Base font
+$font-size-base:            16px;
+
+$font-family-base:          'Poppins', sans-serif;
+
+$font-family-secondary:     'Poppins', sans-serif;
+
+
+//Color Picker/Switcher
+$blue:                      #2f55d4;
+$green:                     #6dc77a;
+$red:                       #ff5b69;
+$soft-red:                  #ffced2;
+$purple:                    #7952B3;
+$purble-light:              #ebe5f4; 
+$skyblue:                   #32c2ec;
+$skobleoff:                 #0f7173;
+$cyan:                      #00c9a7;
+$slateblue:                 #766df4;
+
+$content2:                  #06071B;
+$content-light:             #646d82;
+$content-lighter:           #D9D9D9;
+
+
+$btn-close-bg-dark:          url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$black}'><path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/></svg>");
+$btn-close-width:            1em;
+
+
+
+$colors: (
+    "primary": $primary,
+    "primary-light": $primary-light,
+    "primary-light-dark": $primary-light-dark,
+    "primary-dark": $primary-dark,
+    "yellow": $yellow,
+    "yellow-light": $yellow-light,
+    "soft-pink": $soft-pink,
+    "soft-pink-light": $soft-pink-light,
+    "muted": $muted,
+    "content": $content,
+    "purble": $purble,
+    "purble-light": $purble-light,
+    "content2": $content2,
+    "content-light": $content-light,
+    "content-lighter": $content-lighter,
+    "yellow-dark": $yellow-dark,
+    "blue": $blue,
+    "green": $green,
+    "red": $red,
+    "soft-red": $soft-red,
+    "slateblue": $slateblue
+
+);
+
+$heading-font-sizes: (
+    "h1": 42px,
+    "h2": 36px,
+    "h3": 30px,
+    "h4": 24px,
+    "h5": 20px,
+    "h6": 16px,
+);
+
+$display-font-sizes: (
+    "display-1": 80px,
+    "display-2": 72px,
+    "display-3": 64px,
+    "display-4": 56px,
+);
+
+

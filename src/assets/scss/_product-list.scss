@@ -1,0 +1,37 @@
+.product__list-root{
+  .product__list-wrapper{
+    display: grid;
+    align-items: flex-start;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+
+
+    .product__img-container {
+      width: 100%;
+      aspect-ratio: 4 / 3; 
+      overflow: hidden;
+      background-color: #f9f9f9; 
+
+      .product-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .product__info-container{
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+  }
+}
+
+.product__filter-cartbody{
+  max-height: 300px;
+  overflow-y: scroll;
+}
+.product__info-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
