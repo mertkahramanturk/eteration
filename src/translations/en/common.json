@@ -1,0 +1,33 @@
+{
+  "notification": {
+    "order_success": "Your order has been received successfully",
+    "add_to_cart_success": "Item successfully added your cart",
+    "quantity_increase_success": "Item quantity increased successfully",
+    "quantity_reduced_sucess": "Item quantity reduced successfully",
+    "item_remove_success": "Item removed successfully",
+    "no_brands_found": "No brands found..."
+  },
+  "common_sentences": {
+    "empty_cart": "Your cart is empty"
+  },
+  "buttons": {
+    "add_to_cart": "Add to Cart",
+    "clear_all_filter": "Clear All Filters",
+    "filter": "Filter"
+  },
+  "form": {
+    "brand_filter": {
+      "placeholder": "Search brands...",
+      "field": "Brands"
+    },
+    "search_product": {
+      "placeholder": "Search products...",
+      "field": "Product"
+    }
+
+  },
+
+  "cart": {
+    "items": "You have {{count}} items in your cart"
+  }
+}

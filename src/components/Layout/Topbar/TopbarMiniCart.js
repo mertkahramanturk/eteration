@@ -9,8 +9,10 @@ import { clearCart } from '../../../redux/actions/cartAction';
 import LoadingSpinner from '../../LoadingSpinner'
 import useSlugify from "../../../hooks/useSlugify";
 import { getByIdRequest } from "../../../redux/actions/getRequestByIdAction";
+import { useTranslation } from "react-i18next";
 
 function TopbarRightBasket() {
+  const {t} = useTranslation();
   const dispatch = useDispatch();
   const slugify = useSlugify();
   const navigate = useNavigate();
@@ -47,7 +49,7 @@ function TopbarRightBasket() {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      dispatch(clearCart('Your order has been received successfully'));
+      dispatch(clearCart('order_success'));
       localStorage.setItem("cart", JSON.stringify([]));
 
     }, 1000);
@@ -84,7 +86,7 @@ function TopbarRightBasket() {
             <div className="flex-1 ">
               <p className="font-size-14 font-weight-500">
                 {totalItems > 0
-                  ? `You have ${totalItems} items in your cart`
+                  ? t('cart.items', { count: totalItems })
                   : ""}
               </p>
               {cartItems.length > 0 ? (
@@ -147,7 +149,7 @@ function TopbarRightBasket() {
                 </>
               ) : (
                 <div className="d-flex justify-content-center align-items-center">
-                  <p className="text-dark font-weight-500">Your cart is empty.</p>
+                  <p className="text-dark font-weight-500"> {t('common_sentences.empty_cart')}</p>
                 </div>
               )}
             </div>

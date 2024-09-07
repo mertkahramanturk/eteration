@@ -9,6 +9,7 @@ import LoadingSpinner from '../../../components/LoadingSpinner'
 import { getByIdRequest } from '../../../redux/actions/getRequestByIdAction'
 import { useNavigate } from 'react-router-dom'
 import useSlugify from '../../../hooks/useSlugify'
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -17,12 +18,12 @@ import useSlugify from '../../../hooks/useSlugify'
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const slugify = useSlugify();
-
+    const {t} = useTranslation();
     const handleAddToCart = (e) => {
       e.stopPropagation();
       setLoading(true);
       setTimeout(() => {
-        dispatch(addToCart(item, 'Item successfully added your cart')); 
+        dispatch(addToCart(item, 'add_to_cart_success')); 
         setLoading(false); 
       }, 1000); 
     };
@@ -48,7 +49,7 @@ import useSlugify from '../../../hooks/useSlugify'
           <Price amount={item.price} currency='TRY' locale='tr-TR' className='font-size-14 text-primary font-weight-300' />
           <h3 className='font-size-14 font-weight-500'>{item.name} </h3>
           <Button variant="primary" size="full" onClick={handleAddToCart} disabled={loading}>
-           {loading ? <LoadingSpinner /> : 'Add to Cart'}
+           {loading ? <LoadingSpinner /> : t('buttons.add_to_cart')}
           </Button>
           </div>
         </CardBody>

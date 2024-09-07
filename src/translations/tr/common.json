@@ -1,0 +1,31 @@
+{
+  "notification": {
+    "order_success": "Siparişiniz başarıyla alındı",
+    "add_to_cart_success": "Ürün başarıyla sepete eklendi",
+    "quantity_increase_success": "Ürün miktarı başarıyla artırıldı",
+    "quantity_reduced_success": "Ürün miktarı başarıyla azaltıldı",
+    "item_remove_success": "Ürün başarıyla kaldırıldı",
+    "no_brands_found": "Marka bulunamadı..."
+  },
+  "common_sentences": {
+    "empty_cart": "Sepetiniz boş"
+  },
+  "buttons": {
+    "add_to_cart": "Sepete Ekle",
+    "clear_all_filter": "Tüm Filtreleri Temizle",
+    "filter": "Filtrele"
+  },
+  "form": {
+    "brand_filter": {
+      "placeholder": "Markaları ara...",
+      "field": "Markalar"
+    },
+    "search_product": {
+      "placeholder": "Ürünleri ara...",
+      "field": "Ürün"
+    }
+  },
+  "cart": {
+    "items": "Sepetinizde {{count}} ürün var"
+  }
+}

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSearchTerm } from '../../../redux/actions/searchAction'; 
+import { useTranslation } from 'react-i18next';
 
 function Search() {
+  const {t} = useTranslation();
   const [searchTerm, setSearchTermLocal] = useState('');
   const dispatch = useDispatch();
 
@@ -15,7 +17,7 @@ function Search() {
     <div className="search-bar">
       <input
         type="text"
-        placeholder="Search products..."
+        placeholder={t('form.search_product.placeholder')}
         value={searchTerm}
         onChange={handleSearchChange}
         className="form-control"

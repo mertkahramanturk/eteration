@@ -7,8 +7,10 @@ import Button from '../../../components/Button';
 import LoadingSpinner from '../../../components/LoadingSpinner';
 import { addToCart } from '../../../redux/actions/cartAction'
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function ProductDetail() {
+  const {t} = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState();
@@ -17,7 +19,7 @@ function ProductDetail() {
   const handleAddToCart = (item) => {
     setLoading(true);
     setTimeout(() => {
-      dispatch(addToCart(item, 'Item successfully added your cart'));
+      dispatch(addToCart(item, 'add_to_cart_success'));
       setLoading(false);
     }, 1000);
   };
@@ -49,7 +51,7 @@ function ProductDetail() {
                 <p>{product?.description} </p>
                 <Price amount={product?.price} currency='TRY' locale='tr-TR' className='font-size-28 text-primary font-weight-500' />
                 <Button variant="primary" size="full" onClick={() => handleAddToCart(product)}>
-                  {loading ? <LoadingSpinner /> : 'Add to Cart'}
+                  {loading ? <LoadingSpinner /> : t('buttons.add_to_cart')}
                 </Button>
               </div>
             </Col>

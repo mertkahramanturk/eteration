@@ -17,7 +17,7 @@ function ProductListing() {
   const [filteredProducts, setFilteredProducts] = useState(data);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 12;
+  const productsPerPage = 18;
 
   const handleFilter = (selectedBrands) => {
     setSelectedBrands(selectedBrands);
@@ -74,7 +74,7 @@ function ProductListing() {
               </div>
             }
           </Col>
-          <Col xs={12} md={8} lg={8}>
+          <Col xs={12} md={10} lg={10}>
             <div className="product__list-wrapper">
               {loading ? (
                 [...Array(productsPerPage)].map((_, index) => (
@@ -105,7 +105,6 @@ function ProductListing() {
 
             }
           </Col>
-          <Col xs={2} md={2} lg={2}></Col>
         </Row>
       </Container>
     </React.Fragment>

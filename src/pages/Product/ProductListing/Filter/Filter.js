@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Card, CardBody } from 'reactstrap';
 
 function Filter({ onFilter }) {
+  const {t} = useTranslation();
   const products = useSelector((state) => state.productList?.data || []); 
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [searchTerm, setSearchTerm] = useState(''); 
@@ -45,16 +47,16 @@ function Filter({ onFilter }) {
   return (
     <div className="filter">
       <div className="filter-toggle d-md-none mb-2" onClick={toggleSidebar}>
-        Filtrele <i className="fas fa-filter font-size-16"></i>
+        {t('buttons.filter')} <i className="fas fa-filter font-size-16"></i>
       </div>
 
       <div className='d-md-block d-none'>
-        <h4 className='font-size-16 text-muted font-weight-400'>Brands</h4>
+        <h4 className='font-size-16 text-muted font-weight-400'>{t('form.brand_filter.field')}</h4>
         <Card>
           <CardBody className='product__filter-cartbody'>
             <input
               type="text"
-              placeholder={"Search brands..."}
+              placeholder={t('form.brand_filter.placeholder')}
               value={searchTerm}
               onChange={handleSearchChange}
               className="form-control mb-3"
@@ -83,7 +85,7 @@ function Filter({ onFilter }) {
       {isSidebarOpen && <div className="overlay" onClick={toggleSidebar}></div>}
       <div className={`sidebar pt-2 ${isSidebarOpen ? 'open' : ''}`}>
         <i className='fas fa-times font-size-20 cursor-pointer d-flex justify-content-end px-2' onClick={toggleSidebar} />
-        <h4 className='font-size-16 px-2 text-muted font-weight-400'>Brands</h4>
+        <h4 className='font-size-16 px-2 text-muted font-weight-400'>{t('form.brand_filter.field')}</h4>
         <Card className='border-radius-0'>
           <CardBody className='product__filter-cartbody '>
             {filteredBrands.length > 0 ? (
@@ -101,7 +103,7 @@ function Filter({ onFilter }) {
                 </div>
               ))
             ) : (
-              <p>No brands found</p>
+              <p>{t('notifcation.no_brands_found')}</p>
             )}
           
           </CardBody>
@@ -109,7 +111,7 @@ function Filter({ onFilter }) {
         </Card>
         {selectedBrands.length > 0 && (
               <button className="btn btn-link mt-3" onClick={clearFilters}>
-                Tüm Filtreleri Temizle
+                {t('buttons.clear_all_filter')}
               </button>
             )}
       </div>

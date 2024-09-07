@@ -4,20 +4,19 @@ import { increaseQuantity, decreaseQuantity, removeFromCart } from '../../redux/
 
 const Quantity = ({ productId, quantity }) => {
   const dispatch = useDispatch();
-
   const handleIncrease = () => {
-    dispatch(increaseQuantity(productId, 'Item quantity increased successfully')); 
+    dispatch(increaseQuantity(productId, 'quantity_increase_success')); 
   };
 
   const handleDecrease = (event) => {
     if (quantity > 1) {
       event.stopPropagation()
-      dispatch(decreaseQuantity(productId, 'Item quantity reduced successfully')); 
+      dispatch(decreaseQuantity(productId, 'quantity_reduced_sucess')); 
     }
   };
 
   const handleRemove = () => {
-    dispatch(removeFromCart(productId, 'Item removed successfully')); 
+    dispatch(removeFromCart(productId, 'item_remove_success')); 
   };
 
   return (
