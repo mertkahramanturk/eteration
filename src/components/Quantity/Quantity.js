@@ -6,18 +6,18 @@ const Quantity = ({ productId, quantity }) => {
   const dispatch = useDispatch();
 
   const handleIncrease = () => {
-    dispatch(increaseQuantity(productId)); 
+    dispatch(increaseQuantity(productId, 'Item quantity increased successfully')); 
   };
 
   const handleDecrease = (event) => {
     if (quantity > 1) {
       event.stopPropagation()
-      dispatch(decreaseQuantity(productId)); 
+      dispatch(decreaseQuantity(productId, 'Item quantity reduced successfully')); 
     }
   };
 
   const handleRemove = () => {
-    dispatch(removeFromCart(productId)); 
+    dispatch(removeFromCart(productId, 'Item removed successfully')); 
   };
 
   return (

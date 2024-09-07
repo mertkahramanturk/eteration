@@ -72,10 +72,9 @@ function ProductListing() {
               <div data-testid="filter">
                 <Filter onFilter={handleFilter} />
               </div>
-
             }
           </Col>
-          <Col xs={8} md={8} lg={8}>
+          <Col xs={12} md={8} lg={8}>
             <div className="product__list-wrapper">
               {loading ? (
                 [...Array(productsPerPage)].map((_, index) => (

@@ -5,6 +5,7 @@ import {
   DECREASE_QUANTITY,
   CLEAR_CART
 } from '../actions/cartAction';
+import { addNotification } from '../notification';
 
 const initialState = {
   cartItems: JSON.parse(localStorage.getItem('cart')) || [],
@@ -24,12 +25,14 @@ const cartReducer = (state = initialState, action) => {
         newCartItems = [...state.cartItems, newItem];
       }
       localStorage.setItem('cart', JSON.stringify(newCartItems));
+       addNotification(action.notification, 'success');
       return { ...state, cartItems: newCartItems };
     }
 
     case REMOVE_FROM_CART: {
       const newCartItems = state.cartItems.filter(item => item.id !== action.payload);
       localStorage.setItem('cart', JSON.stringify(newCartItems));
+      addNotification(action.notification, 'success');
       return { ...state, cartItems: newCartItems };
     }
 
@@ -38,6 +41,7 @@ const cartReducer = (state = initialState, action) => {
         item.id === action.payload ? { ...item, quantity: item.quantity + 1 } : item
       );
       localStorage.setItem('cart', JSON.stringify(newCartItems));
+      addNotification(action.notification, 'success');
       return { ...state, cartItems: newCartItems };
     }
 
@@ -48,9 +52,11 @@ const cartReducer = (state = initialState, action) => {
           : item
       ).filter(item => item.quantity > 0);
       localStorage.setItem('cart', JSON.stringify(newCartItems));
+      addNotification(action.notification, 'success');
       return { ...state, cartItems: newCartItems };
     }
     case CLEAR_CART:
+      addNotification(action.notification, 'success');
     return {
       ...state,
       cartItems: [],

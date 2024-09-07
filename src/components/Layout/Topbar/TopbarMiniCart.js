@@ -47,7 +47,7 @@ function TopbarRightBasket() {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      dispatch(clearCart());
+      dispatch(clearCart('Your order has been received successfully'));
       localStorage.setItem("cart", JSON.stringify([]));
 
     }, 1000);
@@ -65,7 +65,7 @@ function TopbarRightBasket() {
     <li className="mb-0" ref={dropdownRef}>
       <div type="button" className="btn-icon d-flex align-items-baseline">
         {totalItems > 0 ? (
-          <div className="d-flex">
+          <div className="d-flex position-relative">
             <span className="basket-count rounded-circle">{totalItems}</span>
             <i
               className="fas fa-shopping-basket text-white"

@@ -6,6 +6,7 @@ function Filter({ onFilter }) {
   const products = useSelector((state) => state.productList?.data || []); 
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [searchTerm, setSearchTerm] = useState(''); 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const brands = [...new Set(products.map(product => product.brand))];
 
@@ -31,37 +32,87 @@ function Filter({ onFilter }) {
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
+  
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
+  const clearFilters = () => {
+    setSelectedBrands([]); 
+    onFilter([]); 
+    setIsSidebarOpen(false)
+  };
   return (
     <div className="filter">
-      <h4 className='font-size-16 text-muted font-weight-400'>Brands</h4>
-      <Card>
-        <CardBody className='product__filter-cartbody'>
-        <input
-        type="text"
-        placeholder={"Search brands..."}
-        value={searchTerm}
-        onChange={handleSearchChange}
-        className="form-control mb-3"
-      />
-          {filteredBrands.length > 0 ? (
-            filteredBrands.map((brand, index) => (
-              <div key={index} className="d-flex gap-2 align-items-center ">
-                <input
-                  type="checkbox"
-                  id={`brand-${brand}`}
-                  value={brand}
-                  onChange={handleBrandChange}
-                  className='cursor-pointer'
-                />
-                <label htmlFor={`brand-${brand}`} className='cursor-pointer'>{brand}</label>
-              </div>
-            ))
-          ) : (
-            <p>No brands found</p>
-          )}
-        </CardBody>
-      </Card>
+      <div className="filter-toggle d-md-none mb-2" onClick={toggleSidebar}>
+        Filtrele <i className="fas fa-filter font-size-16"></i>
+      </div>
+
+      <div className='d-md-block d-none'>
+        <h4 className='font-size-16 text-muted font-weight-400'>Brands</h4>
+        <Card>
+          <CardBody className='product__filter-cartbody'>
+            <input
+              type="text"
+              placeholder={"Search brands..."}
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className="form-control mb-3"
+            />
+            {filteredBrands.length > 0 ? (
+              filteredBrands.map((brand, index) => (
+                <div key={index} className="d-flex gap-2 align-items-center ">
+                  <input
+                    type="checkbox"
+                    id={`brand-${brand}`}
+                    value={brand}
+                    checked={selectedBrands.includes(brand)}
+                    onChange={handleBrandChange}
+                    className='cursor-pointer'
+                  />
+                  <label htmlFor={`brand-${brand}`} className='cursor-pointer'>{brand}</label>
+                </div>
+              ))
+            ) : (
+              <p>No brands found</p>
+            )}
+          </CardBody>
+        </Card>
+      </div>
+
+      {isSidebarOpen && <div className="overlay" onClick={toggleSidebar}></div>}
+      <div className={`sidebar pt-2 ${isSidebarOpen ? 'open' : ''}`}>
+        <i className='fas fa-times font-size-20 cursor-pointer d-flex justify-content-end px-2' onClick={toggleSidebar} />
+        <h4 className='font-size-16 px-2 text-muted font-weight-400'>Brands</h4>
+        <Card className='border-radius-0'>
+          <CardBody className='product__filter-cartbody '>
+            {filteredBrands.length > 0 ? (
+              filteredBrands.map((brand, index) => (
+                <div key={index} className="d-flex gap-2 align-items-center ">
+                  <input
+                    type="checkbox"
+                    id={`brand-${brand}`}
+                    value={brand}
+                    checked={selectedBrands.includes(brand)} 
+                    onChange={handleBrandChange}
+                    className='cursor-pointer'
+                  />
+                  <label htmlFor={`brand-${brand}`} className='cursor-pointer'>{brand}</label>
+                </div>
+              ))
+            ) : (
+              <p>No brands found</p>
+            )}
+          
+          </CardBody>
+        
+        </Card>
+        {selectedBrands.length > 0 && (
+              <button className="btn btn-link mt-3" onClick={clearFilters}>
+                Tüm Filtreleri Temizle
+              </button>
+            )}
+      </div>
     </div>
   );
 }

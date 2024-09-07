@@ -1,12 +1,12 @@
 
 #topnav {
   position: relative;
-  z-index: 1001;
+  z-index: 1;
   transition: all 0.5s ease;
-  padding: 0px 0px;
+  padding: 10px 0px;
   border-bottom: 1px solid $gray-200;
   background-color: $primary !important;
-  height: 50px;
+
 
   .navbar-brand {
     position: relative;
@@ -90,6 +90,10 @@
     background-color: rgba(239, 251, 250, 0.7);
     backdrop-filter: blur(20px);
 
+  }
+  @media (max-width: 960px){
+    padding-bottom: 6px;
+    padding-top: 6px;
   }
 
   @media (min-width: 1200px) {
@@ -194,8 +198,8 @@
   font-weight: bold;
   border-radius: 50%;
   position: absolute;
-  top: 3px; 
-  right: -3px;
+  top: -8px; 
+  right: -13px;
   display: flex;
   align-items: center;
   justify-content: center;

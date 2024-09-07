@@ -17,7 +17,7 @@ function ProductDetail() {
   const handleAddToCart = (item) => {
     setLoading(true);
     setTimeout(() => {
-      dispatch(addToCart(item));
+      dispatch(addToCart(item, 'Item successfully added your cart'));
       setLoading(false);
     }, 1000);
   };

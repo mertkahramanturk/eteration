@@ -22,7 +22,7 @@ import useSlugify from '../../../hooks/useSlugify'
       e.stopPropagation();
       setLoading(true);
       setTimeout(() => {
-        dispatch(addToCart(item)); 
+        dispatch(addToCart(item, 'Item successfully added your cart')); 
         setLoading(false); 
       }, 1000); 
     };
